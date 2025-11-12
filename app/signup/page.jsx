@@ -22,7 +22,7 @@ export default function SignUpPage() {
     setError('');
 
     try {
-      await axios.post('http://localhost:5001/api/auth/signup', formData);
+      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/signup`, formData);
       router.push('/login');
     } catch (err) {
       setError(err.response?.data?.message || 'Signup failed');

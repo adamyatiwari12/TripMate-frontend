@@ -22,7 +22,7 @@ export default function SignInPage() {
     setError('');
 
     try {
-      const res = await axios.post('http://localhost:5001/api/auth/login', formData);
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`, formData);
       localStorage.setItem('token', res.data.token);
       router.push('/');
     } catch (err) {
