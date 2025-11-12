@@ -29,7 +29,7 @@ The hosting setup includes Vercel for the frontend and Render for the backend, e
 
 Deployed Links:
 
-🌐 Frontend (Vercel): trip-mate-frontend.vercel.app
+🌐 Frontend (Vercel): https://trip-mate-frontend.vercel.app/
 
 ⚙️ Backend (Render): https://tripmate-backend-1i7d.onrender.com
 
