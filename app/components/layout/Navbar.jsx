@@ -1,14 +1,18 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import { useRouter } from "next/navigation";
 
 export default function Navbar() {
-const [isAuthenticated, setIsAuthenticated] = useState(() => {
-  const token = localStorage.getItem("token");
-  return !!token;
-});
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const token = localStorage.getItem("token");
+      setIsAuthenticated(!!token);
+    }
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
