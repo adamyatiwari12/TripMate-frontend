@@ -21,16 +21,25 @@ export default function SignInPage() {
     setLoading(true);
     setError('');
 
-    try {
-      const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`, formData);
-      localStorage.setItem('token', res.data.token);
-      router.push('/');
-    } catch (err) {
-      setError(err.response?.data?.message || 'Login failed');
-    } finally {
-      setLoading(false);
-    }
-  };
+  try {
+    const res = await axios.post(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`,
+      formData
+    );
+
+    console.log("✅ Login Response:", res.data);
+
+    localStorage.setItem("token", res.data.token);
+    console.log("✅ Token saved:", localStorage.getItem("token"));
+
+    setTimeout(() => router.push("/dashboard"), 200); // small delay helps ensure it's saved
+  } catch (err) {
+    console.log("❌ Login Error:", err.response?.data || err.message);
+    setError(err.response?.data?.message || "Login failed");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-500 to-blue-600 px-4">
