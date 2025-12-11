@@ -93,6 +93,20 @@ export default function SignInPage() {
           >
             {loading ? 'Signing in...' : 'Sign In'}
           </button>
+
+          <div className="relative flex py-2 items-center">
+            <div className="flex-grow border-t border-gray-300"></div>
+            <span className="flex-shrink-0 mx-4 text-gray-400 text-sm">Or</span>
+            <div className="flex-grow border-t border-gray-300"></div>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setFormData({ email: 'example@example.com', password: '123456' })}
+            className="w-full bg-white border border-gray-300 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-50 transition duration-300 font-medium"
+          >
+            Demo Login
+          </button>
         </form>
 
         <p className="mt-6 text-center text-gray-600">
